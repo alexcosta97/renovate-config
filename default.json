@@ -1,0 +1,99 @@
+{
+  "extends": [
+    "config:base",
+    ":enableRenovate",
+    ":assignee(alexcosta97)",
+    ":reviewer(alexcosta97)",
+    ":automergeDisabled",
+    ":separateMajorReleases",
+    ":combinePatchMinorReleases",
+    ":ignoreUnstable",
+    ":labels(Type: Maintenance,Priority: 3 - Medium)",
+    ":enableVulnerabilityAlertsWithLabel(security)",
+    ":maintainLockFilesWeekly",
+    ":npm",
+    ":docker",
+    "docker:enableMajor",
+    ":disableRateLimiting",
+    ":prImmediately",
+    ":prHourlyLimitNone",
+    ":preserveSemverRanges",
+    ":rebaseStalePrs",
+    ":renovatePrefix",
+    ":semanticCommitTypeAll(build)",
+    ":semanticCommits",
+    ":timezone(Europe/London)",
+    ":unpublishSafe",
+    ":updateNotScheduled",
+    ":widenPeerDependencies",
+    "replacements:all",
+    "group:recommended",
+    "group:babelMonorepo",
+    "group:definitelyTyped",
+    "group:jestMonorepo",
+    "group:kubernetes",
+    "group:linters",
+    "group:monorepos",
+    "group:reactMonorepo",
+    "group:storybookMonorepo",
+    "group:unitTest",
+    "group:test"
+  ],
+  "commitMessageTopic": "{{prettyDepType}} {{depName}}",
+  "commitMessageExtra": "to {{{newValue}}}",
+  "dependencyDashboard": true,
+  "postUpdateOptions": ["npmDedupe", "yarnDedupeHighest"],
+  "rangeStrategy": "pin",
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "prPriority": -1
+    },
+    {
+      "matchPackagePatterns": [
+        "@angular",
+        "@angular-devkit",
+        "@angular-eslint"
+      ],
+      "groupName": "angular",
+      "prPriority": 2
+    },
+    {
+      "matchPackagePatterns": ["^cypress", "@cypress", "@percy"],
+      "groupName": "cypress"
+    },
+    {
+      "matchPackagePatterns": ["^vite", "@vitejs"],
+      "groupName": "vite"
+    },
+    {
+      "matchPackagePatterns": ["^awilix"],
+      "groupName": "awilix"
+    },
+    {
+      "matchPackagePatterns": ["jest", "babel-jest", "@types/jest"],
+      "matchSourceUrlPrefixes": ["https://github.com/kulshekhar/ts-jest"],
+      "groupName": "test packages"
+    },
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "prCreation": "immediate",
+      "prPriority": 10
+    },
+    {
+      "matchDatasources": ["npm"],
+      "stabilityDays": 0
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["Type: Security", "Priority: 1 - Critical"],
+    "transitiveRemediation": true
+  },
+  "osvVulnerabilityAlerts": true,
+  "prConcurrentLimit": 1,
+  "schedule": [
+    "after 9am every day and before 7pm every day"
+  ],
+  "configMigration": true
+}
