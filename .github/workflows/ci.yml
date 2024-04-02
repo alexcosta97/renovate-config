@@ -14,13 +14,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Restore cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          cache: "yarn"
       - name: Install yarn dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Test package
         run: yarn test

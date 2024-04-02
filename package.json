@@ -6,7 +6,6 @@
   "repository": "git@github.com:alexcosta97/renovate-config.git",
   "author": "Alexandre Costa <alex@alexcosta.dev> (https://alexcosta.dev/)",
   "license": "MIT",
-  "private": false,
   "type": "module",
   "scripts": {
     "test": "yarn jest"
