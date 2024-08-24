@@ -10,7 +10,6 @@ __metadata:
   resolution: "@alexcosta97/renovate-config@workspace:."
   dependencies:
     "@babel/core": "npm:^7.22.5"
-    "@babel/plugin-syntax-import-assertions": "npm:^7.22.5"
     "@babel/preset-env": "npm:^7.22.5"
     jest: "npm:^29.5.0"
     renovate: "npm:^38.0.0"
@@ -1481,7 +1480,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-import-assertions@npm:^7.22.5, @babel/plugin-syntax-import-assertions@npm:^7.24.7":
+"@babel/plugin-syntax-import-assertions@npm:^7.24.7":
   version: 7.24.7
   resolution: "@babel/plugin-syntax-import-assertions@npm:7.24.7"
   dependencies:

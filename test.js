@@ -1,5 +1,5 @@
 import { migrateAndValidate } from "renovate/dist/config/migrate-validate.js";
-import config from "./default.json" assert { type: "json" };
+import config from "./default.json" with { type: "json" };
 
 describe("@alexcosta97/renovate-config", () => {
   it("has a renovate config", () => {
